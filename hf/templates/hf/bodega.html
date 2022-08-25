@@ -1,0 +1,92 @@
+{% extends 'hf/base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+
+<div class="row text-white">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <br>
+        <h2 >Gestión de Productos</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="form-group">
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre" maxlength="50" required>          
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" id="numPrecio" name="numPrecio" class="form-control" min="1" max="9" value="1" required>           
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" placeholder="Descripcion" max="100" required>          
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" id="txtNuevo" name="txtNuevo" class="form-control" placeholder="Nuevo" required>          
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" id="txtMarca" name="txtMarca" class="form-control" placeholder="Marca" max="50" required>          
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" id="dateFecha_Fabricacion" name="dateFecha_Fabricacion" class="form-control" placeholder="fecha_fabricacion" required>          
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>          
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <div class="table-responsive py-4 text-white">
+            {% load humanize %}
+            <h3>Listado de Productos</h3>
+            <table class="table table-striped text-white">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Descripción</th>
+                        <th>Nuevo</th>
+                        <th>Marca</th>
+                        <th>Fecha Fabricación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in productos %}
+
+                    <tr>
+                        <td>{{p.nombre}}</td>
+                        <td>${{p.precio | intcomma}}</td>
+                        <td>{{p.descripcion}}</td>
+                        <td>{{p.nuevo}}</td>
+                        <td>{{p.marca}}</td>
+                        <td>{{p.fecha_fabricacion}}</td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
