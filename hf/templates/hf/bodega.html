@@ -15,7 +15,7 @@
 
 {% load crispy_forms_tags %}
 
-<div class="row text-white">
+<div class="row text-black">
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
         <br>
         <h2 >Gestión de Productos</h2>
@@ -56,35 +56,38 @@
         </div>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-        <div class="table-responsive py-4 text-white">
+        <div class="table-responsive py-4 text-black">
             {% load humanize %}
             <h3>Listado de Productos</h3>
-            <table class="table table-striped text-white">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Descripción</th>
-                        <th>Nuevo</th>
-                        <th>Marca</th>
-                        <th>Fecha Fabricación</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for p in productos %}
-
-                    <tr>
-                        <td>{{p.nombre}}</td>
-                        <td>${{p.precio | intcomma}}</td>
-                        <td>{{p.descripcion}}</td>
-                        <td>{{p.nuevo}}</td>
-                        <td>{{p.marca}}</td>
-                        <td>{{p.fecha_fabricacion}}</td>
-                    </tr>
-
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="card">
+                <table class="table table-striped text-black">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Descripción</th>
+                            <th>Nuevo</th>
+                            <th>Marca</th>
+                            <th>Fecha Fabricación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in productos %}
+    
+                        <tr>
+                            <td>{{p.nombre}}</td>
+                            <td>${{p.precio | intcomma}}</td>
+                            <td>{{p.descripcion}}</td>
+                            <td>{{p.nuevo}}</td>
+                            <td>{{p.marca}}</td>
+                            <td>{{p.fecha_fabricacion}}</td>
+                        </tr>
+    
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     </div>
 </div>
