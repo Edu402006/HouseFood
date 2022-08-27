@@ -21,7 +21,7 @@
         if(split == 'mesas_on.png'){
             $(this).children().removeAttr('src')
             $(this).children().attr('src', 'static/img/mesas_off.png')
-            alert('Ud a Seleccionado la ' + $(this).children('h3').text())              
+            alert('Ud a Seleccionado la ' + $(this).children('h2').text())              
         }else if(split == 'mesas_off.png'){
             $(this).children().removeAttr('src')
             $(this).children().attr('src', 'static/img/mesas_on.png')               
@@ -46,43 +46,28 @@
     </div>
 </div> -->
 
-<h2>MESAS</h2>
+<h1>MESAS</h1>
 
 <div class="productos">
     <div class="producto">
         <div class="contenedor_producto">
             <img src="{% static 'img/mesas_on.png' %}" alt="imagen producto">
             <div class="detalle">
-                <h3>Mesa 1</h3>
-                <h2></h2>
-                <h3></h3>
+                <h2>Mesa 1</h2>
             </div>
         </div>
     </div>
     <div class="producto">
         <div class="contenedor_producto">
             <img src="{% static 'img/mesas_on.png' %}" alt="imagen producto">
-                <h3>Mesa 2</h3>
-                
+                <h2>Mesa 2</h2>                
         </div>
     </div>
     <div class="producto">
         <div class="contenedor_producto">
             <img src="{% static 'img/mesas_on.png' %}" alt="imagen producto">
             <div class="detalle">
-                <h3>Mesa 3</h3>
-                <h2></h2>
-                <h3></h3>
-            </div>
-        </div>
-    </div>
-    <div class="producto">
-        <div class="contenedor_producto">
-            <img src="{% static 'img/mesas_on.png' %}" alt="imagen producto">
-            <div class="detalle">
-                <h3>Mesa 4</h3>
-                <h2></h2>
-                <h3></h3>
+                <h2>Mesa 3</h2>
             </div>
         </div>
     </div>
@@ -90,9 +75,15 @@
         <div class="contenedor_producto">
             <img src="{% static 'img/mesas_on.png' %}" alt="imagen producto">
             <div class="detalle">
-                <h3>Mesa 5</h3>
-                <h2></h2>
-                <h3></h3>
+                <h2>Mesa 4</h2>
+            </div>
+        </div>
+    </div>
+    <div class="producto">
+        <div class="contenedor_producto">
+            <img src="{% static 'img/mesas_on.png' %}" alt="imagen producto">
+            <div class="detalle">
+                <h2>Mesa 5</h2>
             </div>
         </div>
     </div>
